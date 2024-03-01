@@ -2,8 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
 
 const initialState = {
-  list: [],
-  errors: {}
+  randomGreeting: ""
 }
 
 const fetchGreetings = createAsyncThunk(
@@ -28,7 +27,7 @@ const greetingsSlice = createSlice({
   extraReducers: (builder) => {
     builder
     .addCase(fetchGreetings.fulfilled, (state, { payload }) => {
-      state.list = payload
+      state.randomGreeting = payload
     })
     .addCase(fetchGreetings.rejected, (state, { payload }) => {
       state.errors = payload
