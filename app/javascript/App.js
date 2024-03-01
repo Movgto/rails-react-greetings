@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { fetchGreetings } from './redux/slices/greetingsSlice';
 
 const App = () => {
@@ -10,7 +9,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fetchGreetings());
-  }, []);
+  }, [dispatch]);
 
   function clickHandler() {
     dispatch(fetchGreetings());
